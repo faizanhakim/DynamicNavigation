@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DynamicNavigationMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4286298bc35b9d1bf358946d1505bc3823a91080")]
 [assembly: System.Reflection.AssemblyProductAttribute("DynamicNavigationMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DynamicNavigationMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
