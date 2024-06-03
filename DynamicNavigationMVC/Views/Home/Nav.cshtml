@@ -1,0 +1,43 @@
+﻿@* @model List<NavigationItem>
+
+<nav>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="@item.Url">@item.Label</a></li>
+        }
+    </ul>
+</nav> *@
+
+@* <table id="productTable" class="display">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <!-- Add more columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <!-- Add more columns as needed -->
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+    <script>
+        $(document).ready(function () {
+            $('#productTable').DataTable();
+        });
+    </script>
+}
+ *@

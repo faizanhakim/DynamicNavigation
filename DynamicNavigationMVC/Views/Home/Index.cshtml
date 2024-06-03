@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_FrontendLayout.cshtml";
+
+    var culture = (System.Globalization.CultureInfo)System.Globalization.CultureInfo.CurrentCulture.Clone();
+    culture.NumberFormat.CurrencyPositivePattern = 2;
+    culture.NumberFormat.CurrencyNegativePattern = 2;
+
+    culture.NumberFormat.CurrencySymbol += " ";
+
+}
+
+<div style=" width=500 height=600">
+    <table id="productTable" class="display">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name.Split('-')[0]</td>
+                    <td>@string.Format(culture, "{0:C}", product.Price)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+    <script>
+        $(document).ready(function () {
+            if (!$.fn.DataTable.isDataTable('#productTable')) {
+                $('#productTable').DataTable({
+                    "columnDefs": [
+                        { "width": "10%", "targets": 0 },
+                        { "width": "60%", "targets": 1 },
+                        { "width": "20%", "targets": 2 },
+                    ]
+                });
+            }
+        });
+    </script>
+}
+
+

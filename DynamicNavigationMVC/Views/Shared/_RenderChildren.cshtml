@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Category>
+
+@foreach (var child in Model)
+{
+    if (child.ChildCategory.Count != 0)
+    {           
+        <li>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                <span class="menu-text">@child.Name.Split("-")[0]</span>
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <partial name="_RenderChildren" model="child.ChildCategory"/>
+            </ul>
+        </li>
+    }
+    else if (child.ChildCategory.Count == 0)
+    {
+        <li>
+            <a asp-action="ProductByCategory" asp-controller="Home" asp-route-id="@child.Id">
+                <span class="menu-text"><b>@child.Name.Split("-")[0]</b></span>
+            </a>
+        </li>
+    }
+}
+
